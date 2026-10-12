@@ -1,0 +1,108 @@
+@font-face{font-family:'SF Pro Display';src:url('assets/fonts/SF-Pro-Display-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro Display';src:url('assets/fonts/SF-Pro-Display-Semibold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro Display';src:url('assets/fonts/SF-Pro-Display-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro Text';src:url('assets/fonts/sf-pro-text/SFProText-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro Text';src:url('assets/fonts/sf-pro-text/SFProText-Semibold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+:root{color-scheme:dark;--surface:#1c1c1e;--muted:#91949d;--purple:#bf8bfa;--yellow:#ffe32e;--text:#f5f5f7;--tile:#2c2c2e}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#101012}body{font-family:'SF Pro Display',Arial,Helvetica,sans-serif;color:var(--text);display:grid;place-items:center;min-height:100dvh}button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:2px solid #d4b1ff;outline-offset:5px}button:active{transform:scale(.98)}[hidden]{display:none!important}
+.phone{width:min(100%,375px);height:max(724px,100dvh);position:relative;background:#000;isolation:isolate;overflow:hidden}.status-bar{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 15px 0 33px;font-size:15px;font-weight:600;z-index:3}.status-icons{display:flex;gap:5px;align-items:center}.sheet-back{position:absolute;top:44px;left:16px;right:16px;height:26px;border-radius:11px 11px 0 0;background:#ccc}.reward-screen{position:absolute;inset:54px 0 0;border-radius:11px 11px 0 0;background:linear-gradient(180deg,#1c1c1e 6%,#000 85%);overflow:hidden}.close-button{position:absolute;top:8px;left:16px;min-height:44px;padding:0;border:0;background:none;color:var(--text);font-size:17px;z-index:2}.color-spots{position:absolute;left:50%;top:93px;width:698px;height:338px;max-width:none;transform:translateX(-50%);pointer-events:none}.hero{position:absolute;top:181px;left:8px;right:8px;text-align:center}.bot{display:block;width:132px;height:100px;object-fit:contain;margin:0 auto 11px}.hero h1{font-size:20px;line-height:24px;letter-spacing:-.3px;margin:0 0 7px;font-weight:700}.hero p{font-size:15.5px;line-height:18px;margin:0;color:var(--muted);letter-spacing:.1px}
+.rewards{position:absolute;top:383.536px;left:13.5px;right:13.5px;height:145px;padding:16px;background:var(--surface);border-radius:24px}.rewards-header{height:16px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;font-size:12px;letter-spacing:.15px;color:var(--muted)}.info-button{position:relative;display:grid;place-items:center;width:16px;height:16px;border:0;border-radius:50%;background:#39393b;color:#ddd;padding:0;font:bold 12px Georgia,serif}.info-button:before{content:"";position:absolute;inset:-14px}.days{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:0;margin:12px 0 0}.day{text-align:center;min-width:0}.reward-tile{position:relative;height:60px;display:flex;justify-content:center;border:1px solid #ffffff0d;border-radius:12px;background:var(--tile);overflow:hidden}.reward-tile img{position:absolute;top:3px;width:49.392px;height:49.392px;object-fit:contain}.reward-tile img.coins{top:8px;width:53px;height:auto}.quantity{position:absolute;bottom:3px;font-size:14px;line-height:16px;font-weight:600;text-shadow:0 1px 3px #000}.current .reward-tile{border-color:#d2b5f1;background:radial-gradient(ellipse at 50% 90%,#7141a3 0, #30243f 50%,#242126 100%)}.day-label{display:block;font-size:12px;line-height:16px;color:var(--muted);margin-top:8px;white-space:nowrap}.current .day-label{color:var(--purple)}.claimed-check{display:none;position:absolute;top:3px;right:5px;color:#e4ceff;font-weight:700;font-size:14px}.claimed .claimed-check{display:block}.claimed .bot{animation:celebrate .6s ease-out}.action-area{position:absolute;left:16px;right:16px;bottom:58px;padding-bottom:env(safe-area-inset-bottom,0px)}.primary-button{width:100%;min-height:56px;border:0;border-radius:16px;background:var(--yellow);color:#302b00;display:flex;align-items:center;justify-content:center;font-size:17px;gap:2px;padding:12px 16px;transition:filter .15s,transform .15s}.primary-button:hover{filter:brightness(1.04)}.primary-button img{object-fit:contain}
+.closed-screen{position:absolute;inset:54px 0 30px;padding:150px 24px 32px;text-align:center;background:radial-gradient(ellipse at 50% 35%,#3f255c,transparent 50%),linear-gradient(#1c1c1e,#000)}.closed-screen>img{object-fit:contain}.closed-screen h1{font-size:22px;margin:24px 0 12px}.closed-screen p{font-size:15px;line-height:22px;color:var(--muted);margin-bottom:36px}.text-button{min-height:44px;border:0;background:none;color:var(--muted);font-size:14px;margin-top:16px;padding:10px}.closed-screen .primary-button{font-size:16px}
+dialog{width:calc(100% - 32px);max-width:343px;border:1px solid #444;border-radius:24px;background:#242426;color:var(--text);padding:28px 24px;box-shadow:0 24px 80px #0009}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}dialog h2{font-size:21px;margin:14px 0 16px}dialog p,dialog li{font-size:15px;line-height:22px}dialog ul{padding-left:20px}dialog .muted{color:var(--muted);margin-bottom:24px}.dialog-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:none;color:#aaa;font-size:28px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.bot{position:relative}
+.bot-fallback{display:block;width:132px;height:100px;object-fit:contain}
+.bot-idle{position:absolute;width:151px;height:131.6px;left:-9.5px;top:-8.5px;opacity:0;pointer-events:none}
+.bot.idle-ready .bot-idle{opacity:1}
+.bot.idle-ready .bot-fallback{visibility:hidden}
+.claimed .bot{animation:none}
+.hero h1{font-family:'SF Pro Display',Arial,Helvetica,sans-serif;font-weight:700}
+.hero p,button{font-family:'SF Pro Text',Arial,Helvetica,sans-serif;font-weight:400}
+.quantity{font-family:'SF Pro Text',Arial,Helvetica,sans-serif;font-weight:600;-webkit-text-stroke:4px #202020;paint-order:stroke fill;text-shadow:none}
+@keyframes celebrate{0%,100%{transform:translateY(0)}45%{transform:translateY(-12px) rotate(-5deg)}75%{transform:rotate(4deg)}}
+@media(min-width:500px){.phone{height:812px;min-height:812px;box-shadow:0 0 90px #0008}}
+@media(max-width:350px){.rewards{left:10px;right:10px;padding:16px 12px}.reward-tile{height:54px}.reward-tile img{width:45px;height:45px}.reward-tile img.coins{width:47px}.hero h1{font-size:19px}.hero p{font-size:14px}.day-label{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* Flow states and the supplied reward effects. */
+html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
+body{display:flex;flex-direction:column;justify-content:center;align-items:center}
+.phone{flex-shrink:0}
+.settings-button{position:absolute;top:62px;right:8px;z-index:6;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:none;color:#aaa6b2;border-radius:12px}
+.primary-button:disabled{cursor:default;background:#29292c;color:#9a9aa2;transform:none;filter:none}
+.day.completed .reward-tile{background:#30243f;border-color:#67498b}
+.day.completed .reward-tile img,.day.completed .quantity{opacity:.32}
+.day.completed .reward-tile::after{content:'';position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%,-50%);background:url('assets/reward-check.png') center/contain no-repeat}
+.info-button{background:none}
+.info-button img{display:block;width:16px;height:16px}
+.gold-day .reward-tile .gold-cell{display:none;top:0;left:0;width:100%;height:100%;object-fit:fill}
+.gold-day.current .reward-tile,.gold-day.completed .reward-tile{border:0;background:none}
+.gold-day.current .gold-cell,.gold-day.completed .gold-cell{display:block}
+.gold-day.current .gold-base,.gold-day.completed .gold-base,.gold-day.current .quantity,.gold-day.completed .quantity{display:none}
+.gold-day.current .day-label{color:#e7b56d}
+.reward-tooltip{position:absolute;z-index:6;left:24px;right:4px;bottom:calc(100% + 1px);background:#fff;color:#333;border-radius:8px;padding:12px 16px;font-family:'SF Pro Text',sans-serif;font-size:14px;line-height:17px;box-shadow:0 4px 24px #0003}
+.reward-tooltip::after{content:'';position:absolute;bottom:-7px;right:15px;width:14px;height:14px;background:#fff;transform:rotate(45deg);border-radius:2px}
+.reveal-screen{position:absolute;inset:54px 0 0;border-radius:11px 11px 0 0;overflow:hidden;background:linear-gradient(180deg,#1c1c1e 6%,#000 85%)}
+.balance-badge{position:absolute;z-index:4;top:64px;left:16px;min-width:64px;height:32px;padding:4px 10px 4px 8px;display:flex;align-items:center;gap:3px;background:#303033;color:#eee;border-radius:12px;font:600 16px/24px 'SF Pro Text',sans-serif;transform-origin:center}
+.balance-badge img{width:24px;height:24px;object-fit:contain}
+.reveal-screen.gold-mode .balance-badge{left:auto;right:16px}
+.collect-reward{position:absolute;inset:108px 0 28px;width:100%;border:0;background:none;color:#eee;padding:0;cursor:pointer}
+.collect-reward:active{transform:none}
+.collect-reward:focus-visible{outline-offset:-8px;border-radius:18px}
+.collect-reward:disabled{cursor:default}
+#reveal-title{position:absolute;top:174px;left:0;right:0;margin:0;font:700 20px/24px 'SF Pro Display',sans-serif;color:#353537;animation:reveal-title-in .5s ease both}
+.reward-burst{position:absolute;top:calc(50% - 20px);left:50%;width:132px;height:132px;transform:translate(-50%,-50%);display:block}
+.reward-glow{position:absolute;inset:0;width:132px;height:132px;opacity:.68;animation:reward-glow 2.8s ease-in-out infinite}
+.reward-particles{position:absolute;width:74px;height:74px;object-fit:contain;left:29px;top:17px;animation:particles-drift 3s ease-in-out infinite}
+.particles-two{transform:rotate(160deg);animation-delay:-1.5s;opacity:.7}
+.reveal-art{position:absolute;width:82px;height:82px;object-fit:contain;left:25px;top:24px;animation:reward-appear .55s cubic-bezier(.2,.8,.3,1.2) both}
+.reward-burst .quantity{top:102px;bottom:auto;left:0;right:0;font-size:20px;line-height:24px;text-align:center}
+.continue-hint{position:absolute;bottom:28px;left:0;right:0;font-size:15px;line-height:20px;color:#ddd}
+.flying-rewards{position:absolute;inset:0;pointer-events:none;z-index:3}
+.flying-energy{position:absolute;width:48px;height:48px;object-fit:contain;will-change:transform,opacity}
+.is-flying #reveal-title,.is-flying .continue-hint,.is-flying .reward-burst .quantity{opacity:0;animation:none;transition:opacity .15s}
+.is-flying .reveal-art{opacity:.35;animation:none;transition:opacity .25s}
+.is-flying .reward-glow{animation:reward-glow .6s ease-in-out infinite}
+.demo-panel{width:min(343px,calc(100% - 32px));max-height:calc(100dvh - 48px);margin:auto;padding:24px;border:1px solid #343438;border-radius:24px;background:#1b1b1e;font:14px/1.5 'SF Pro Text',sans-serif;color:#ddd;overflow-y:auto}
+.demo-panel h2{font-family:'SF Pro Display',sans-serif;font-size:21px;line-height:26px;margin:12px 0 8px}.demo-caption{color:#95959e;font-size:12px;margin:8px 0 16px}.demo-panel label{display:block;font-size:12px;margin:14px 0 6px}.day-picker{display:flex;gap:8px}.demo-panel input{min-width:0;width:100%;height:44px;padding:8px 12px;background:#29292e;border:1px solid #444;border-radius:9px;color:#fff;font:inherit}.day-picker .demo-button{width:auto;flex-shrink:0;padding:0 16px;margin:0}.demo-button{display:block;width:100%;min-height:44px;border:1px solid #424247;border-radius:9px;background:#29292e;color:#ddd;font-size:13px;margin-top:10px}.demo-button:disabled{opacity:.4;cursor:default}.demo-panel output{display:block;margin-top:18px;font-size:12px;color:#c2a4ee}.demo-panel .demo-caption:last-child{margin-bottom:0}.reset-button{color:#e9b7bc;border-color:#614044;background:#34262a}.demo-panel input:focus-visible{outline:2px solid #d4b1ff;outline-offset:2px}
+@keyframes reward-glow{0%,100%{transform:scale(.9);opacity:.52}50%{transform:scale(1.12);opacity:.9}}
+@keyframes particles-drift{0%,100%{translate:0 3px;opacity:.45}50%{translate:0 -7px;opacity:1}}
+@keyframes reward-appear{from{transform:scale(.55);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes reveal-title-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:350px){.hero h1{font-size:18px;letter-spacing:-.4px}.reward-tooltip{left:12px;font-size:13px}.continue-hint{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.reveal-screen *, .reveal-screen *::after{animation:none!important;transition:none!important}}
+/* Daily bonus entrance: UI completes at 4.08 s, Idle begins at 4.6 s. */
+.reward-screen{--intro-ease-in:cubic-bezier(.25,.1,.25,1);--intro-ease-out:cubic-bezier(.2,0,1,1);--intro-ease-ui:cubic-bezier(.16,0,.2,1)}
+.daily-balance{left:auto;right:16px}
+.streak-intro{position:absolute;top:168px;left:16px;right:16px;text-align:center;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:0}
+.streak-number{font:700 96px/96px 'SF Pro Display',sans-serif;letter-spacing:-3px;max-width:100%;overflow-wrap:anywhere;background:linear-gradient(135deg,#9462ff 8%,#c7aaff 42%,#fff 78%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.streak-label{font:700 24px/30px 'SF Pro Display',sans-serif;background:linear-gradient(110deg,#9462ff 0%,#c7aaff 48%,#fff 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.intro-pending .color-spots,.intro-pending .bot,.intro-pending .info-text,.intro-pending .rewards,.intro-pending .action-area,.intro-pending .daily-balance{opacity:0}
+@media(prefers-reduced-motion:reduce){.intro-pending .color-spots,.intro-pending .bot,.intro-pending .info-text,.intro-pending .rewards,.intro-pending .action-area,.intro-pending .daily-balance{opacity:1}}
+/* Match Arrival's final 16.25% body scale to Idle's 79.6% body scale. */
+.bot-arrival{position:absolute;width:391.31px;height:317.28px;left:-129.655px;top:-113.91px;opacity:0;pointer-events:none}
+.bot.arriving.arrival-ready .bot-arrival{opacity:1}
+.bot.arriving.arrival-ready .bot-idle{opacity:0}
+.bot.arriving.arrival-ready .bot-fallback{visibility:hidden}
+/* Missed-day recovery state. */
+.loss-mode .bot #bot-idle,.loss-mode .bot #bot-arrival{opacity:0}
+.loss-mode .bot.sad-idle-ready:not(.sad-arriving) #bot-sad-idle{opacity:1}
+.loss-mode .bot.sad-arriving.sad-arrival-ready #bot-sad-arrival{opacity:1}
+.loss-mode .bot.sad-idle-ready .bot-fallback{visibility:hidden}
+.bot #bot-sad-idle,.bot #bot-sad-arrival{opacity:0}
+.loss-mode .day.current:not(.gold-day) .reward-tile{border:0;background:url('assets/missed-cell.svg') center/100% 100% no-repeat}
+.loss-mode .day.current:not(.gold-day) .reward-tile>*{visibility:hidden}
+.loss-mode .day.current .day-label{color:#ef587c}
+.loss-mode .gold-day.current .reward-tile{border:1px solid #ed607f;background:radial-gradient(ellipse at 50% 90%,#84334c,#35232a 70%)}
+.loss-mode .gold-day.current .gold-cell{display:none}
+.loss-mode .gold-day.current .gold-base{display:block;content:url('assets/gold-single.png')}
+.loss-mode .gold-day.current .quantity{display:block}
+
+.decline-restore{display:block;width:100%;margin-top:12px;padding:8px;min-height:44px;font-size:17px}
+.loss-mode .action-area{bottom:58px}
+
+.restart-mode .rewards{top:407.536px}
+.restart-mode .daily-balance{visibility:hidden}
+.coin-debit-effects{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.coin-debit-amount{position:absolute;color:#ffd387;font:600 18px/24px 'SF Pro Text',sans-serif;font-variant-numeric:tabular-nums;text-shadow:0 2px 8px #0008}
+.coin-debit-particle{position:absolute;width:20px;height:20px;object-fit:contain}
+.balance-badge{font-variant-numeric:tabular-nums}
+.recovering .primary-button:disabled{background:var(--yellow);color:#302b00}
