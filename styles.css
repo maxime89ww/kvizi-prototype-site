@@ -106,3 +106,48 @@ body{display:flex;flex-direction:column;justify-content:center;align-items:cente
 .coin-debit-particle{position:absolute;width:20px;height:20px;object-fit:contain}
 .balance-badge{font-variant-numeric:tabular-nums}
 .recovering .primary-button:disabled{background:var(--yellow);color:#302b00}
+
+/* Fluid phone layout: content determines the minimum height, so short screens scroll. */
+.phone{
+  --phone-height:max(560px,100svh);
+  --hero-top:clamp(64px,calc(100svh - 631px),220px);
+  --footer-space:clamp(24px,calc(100svh - 754px),58px);
+  width:100%;height:auto;min-height:var(--phone-height);
+}
+.reward-screen{
+  position:relative;inset:auto;margin-top:54px;min-height:calc(var(--phone-height) - 54px);
+  display:flex;flex-direction:column;align-items:stretch;
+  padding:var(--hero-top) max(14px,env(safe-area-inset-right)) calc(var(--footer-space) + env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left));
+}
+.hero{position:relative;top:auto;left:auto;right:auto;flex-shrink:0;margin:0 -6px}
+.reward-screen.loss-mode{--hero-top:clamp(112px,calc(100svh - 631px),220px)}
+.color-spots{top:calc(var(--hero-top) - 88px);width:max(698px,150%);height:338px;object-fit:fill}
+.streak-intro{top:calc(var(--hero-top) - 13px)}
+.rewards,.restart-mode .rewards{
+  position:relative;top:auto;left:auto;right:auto;height:auto;flex-shrink:0;
+  margin-top:24px;padding:16px;
+}
+.reward-tile{height:auto;min-height:50px;aspect-ratio:1}
+.reward-tile img{width:84%;height:84%;top:5%;object-fit:contain}
+.reward-tile img.coins{width:90%;height:84%;top:9%;object-fit:contain}
+.day-label{font-size:clamp(10px,3.2vw,12px)}
+.action-area,.loss-mode .action-area{
+  position:relative;inset:auto;flex-shrink:0;margin: auto 2px 0;padding:32px 0 0;
+}
+.closed-screen{
+  position:relative;inset:auto;margin-top:54px;min-height:calc(var(--phone-height) - 54px);
+  padding:clamp(80px,18svh,150px) 24px calc(32px + env(safe-area-inset-bottom));
+}
+.collect-reward{bottom:calc(20px + env(safe-area-inset-bottom))}
+#reveal-title{top:calc(50% - 150px)}
+.continue-hint{left:16px;right:16px;bottom:24px}
+@media(max-width:350px){
+  .reward-screen{padding-left:10px;padding-right:10px}
+  .rewards,.restart-mode .rewards{padding:16px 12px}
+  .hero{margin:0}
+  .wide-break{display:none}
+  .action-area,.loss-mode .action-area{margin-left:6px;margin-right:6px}
+}
+@media(min-width:768px){
+  .phone{--phone-height:max(560px,min(900px,100svh));--hero-top:clamp(64px,calc(min(900px,100svh) - 631px),220px);width:min(480px,calc(100% - 32px));box-shadow:0 0 90px #0008}
+}
